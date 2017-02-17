@@ -85,8 +85,8 @@ textarea {
        width: 150px;
      }
 
-     #signinform{ 
-         margin-top: 10px;
-         margin-left: 100px;
-
+     .welcome{ 
+       color:white;
+       padding-top: 10px; 
+       float: right; 
      }

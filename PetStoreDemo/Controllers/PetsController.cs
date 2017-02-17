@@ -45,7 +45,7 @@ namespace PetStoreDemo.Controllers
                 int maxid = pets.Max(p => p.Id);
                 
                 var pet = new ApiPetsController().PutPet(new_pet.Id, new_pet); 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"); 
             }
             catch
             {

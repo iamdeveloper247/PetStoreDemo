@@ -9,8 +9,10 @@
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
+            
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -22,28 +24,28 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink(" ", "Index", "Home", new { area = "" }, null)</li>
-                    <li>  </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <form class="form-inline" id="signinform">
-                            <div class="form-group">
-                                <label class="sr-only" for="Username">Username</label>
-                                <input type="text" class="form-control" id="Username" placeholder="Username">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="password">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Password">
-                            </div>
-                            
-                            <button type="submit" class="btn btn-default" id="loginbtn">Sign in</button>
-                        </form>
+                        @if (Session["user"] == null)
+                        {
+                        <h4><a href="/login/index">Login</a></h4>
+                        }
+                        else
+                        {
+                            <h4 class="welcome">Welcome, @Session["user"], 
+                                                <a href="/login/logout" >Logout</a>
+                            </h4>
+                        }
                     </li>
                 </ul>
             </div>
         </div>
-    </div>*@
+       
+    </div>
 
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -62,7 +64,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div>*@
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -83,48 +85,44 @@
 
 
 
-            $("#loginbtn").click(function(){ 
-                var username = $("#Username").val(); 
-                var password = $("#password").val();
+            //$("#loginbtn").click(function(){ 
+            //    var username = $("#Username").val(); 
+            //    var password = $("#password").val();
                 
 
-                $.ajax({
-                    type: 'GET',
-                    url: "Home/Login",
-                    dataType: 'json',
-                    headers :{ 
-                        'Authorization': 'Basic ' + btoa(username + ':' + password)
-                    },
-                    success: function (data) {
-                        $.each(data, function (Index, val) {
+            //    $.ajax({
+            //        type: 'GET',
+            //        url: "Home/Login",
+            //        dataType: 'json',
+            //        headers :{ 
+            //            'Authorization': 'Basic ' + btoa(username + ':' + password)
+            //        },
+            //        success: function (data) {
+            //            $.each(data, function (Index, val) {
                             
-                        })
-                    },
-                    complete: function(jqXHR) {
-                        if(jqXHR.status == '401')
-                        {
-                            j.status  + ':' + jqXHR.statusText
-                        }
-                    }
+            //            })
+            //        },
+            //        complete: function(jqXHR) {
+            //            if(jqXHR.status == '401')
+            //            {
+            //                j.status  + ':' + jqXHR.statusText
+            //            }
+            //        }
 
-                });
+            //    });
         
-            });
+            //});
 
 
-            $("#btnImage").click(function () {
+            //$("#btnImage").click(function () {
 
-                alert("something"); 
-            }); 
+            //    alert("something"); 
+            //}); 
     
     
        });
 
     </script>
-
-            
-
-       
 
 </body>
 </html>

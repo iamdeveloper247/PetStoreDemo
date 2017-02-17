@@ -11,6 +11,22 @@ namespace PetStoreDemo
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
+        //protected void Application_BeginRequest(Object sender, EventArgs e)
+        //{
+        //    if (!Request.Url.AbsolutePath.ToLower().Contains("login") && Request.HttpMethod != "POST")
+        //    {
+        //        try
+        //        {
+        //            var user = HttpContext.Current.Session["user"];
+        //        }
+        //        catch (System.NullReferenceException ex)
+        //        {
+        //            Response.RedirectToRoute("Default", new { controller = "Login", action = "Index" });
+        //        }
+                
+        //    }
+        //}
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
