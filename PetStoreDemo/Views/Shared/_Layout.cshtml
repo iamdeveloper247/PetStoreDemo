@@ -9,7 +9,7 @@
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -40,10 +40,10 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div>*@
 
 
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -51,21 +51,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("My Pet Store", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Pets", "Index", "Pets", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                    
                 </ul>
             </div>
         </div>
-    </div>*@
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - My Pet Store Application</p>
         </footer>
     </div>
 
@@ -76,13 +78,44 @@
  
     <script>
 
-       $(document).ready(function() {
+        $(document).ready(function () {
+
+
+
+
             $("#loginbtn").click(function(){ 
                 var username = $("#Username").val(); 
-           
-                alert(username); 
+                var password = $("#password").val();
+                
+
+                $.ajax({
+                    type: 'GET',
+                    url: "Home/Login",
+                    dataType: 'json',
+                    headers :{ 
+                        'Authorization': 'Basic ' + btoa(username + ':' + password)
+                    },
+                    success: function (data) {
+                        $.each(data, function (Index, val) {
+                            
+                        })
+                    },
+                    complete: function(jqXHR) {
+                        if(jqXHR.status == '401')
+                        {
+                            j.status  + ':' + jqXHR.statusText
+                        }
+                    }
+
+                });
         
-             });
+            });
+
+
+            $("#btnImage").click(function () {
+
+                alert("something"); 
+            }); 
     
     
        });
@@ -91,9 +124,7 @@
 
             
 
-            //$(".contentContainer").css("min-height", $(window).height());
-
-    </script>
+       
 
 </body>
 </html>

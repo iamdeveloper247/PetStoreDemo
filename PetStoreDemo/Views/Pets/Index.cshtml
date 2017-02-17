@@ -1,0 +1,95 @@
+﻿@using PetStoreDemo.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <h2>Pet Details</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        
+        <th>
+            Pet Name
+        </th>
+        <th>
+            Pet Category
+        </th>
+        <th>
+            Status
+        </th>
+        <th> Delete </th>
+        <th> Details </th>
+        <th> id </th>
+    </tr>
+
+    @foreach (PetStoreDemo.Models.Pet pet in ViewBag.pets)
+    {
+        <tr>
+            <td>
+                @pet.Name
+            </td>
+            <td>
+                @pet.Category
+            </td>
+            <td>
+                @foreach (PetStoreDemo.Models.Status st in ViewBag.status)
+                {
+                    if (@pet.statusId == @st.Id)
+                    {
+                        @st.name
+                    }
+
+                }
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
+                @*@Html.ActionLink("Details", "Details", new { id=item.Id })*@
+                @Html.ActionLink("Delete", "Delete", new { id= @pet.Id })
+            </td> 
+            <td>
+                @*<button type="button" class="btn btn-success" data-toggle="modal" data-target="#detailmodal" >
+                   View Image
+                </button>*@
+
+            </td>
+            <td>
+                 
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+<div>
+    
+    <div class="modal" id="detailmodal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal"> X</button>
+
+                    <h4 class="modal-title"> Image </h4>
+
+                </div>
+                <div class="modal-body">
+                    What a fantastic modal is !
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
+                    @*<button class="btn btn-success"> Save Changes </button>*@
+                </div>
+
+            </div>
+
+        </div>
+    </div> 
+</div>
+
+
