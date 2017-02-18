@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using PetStoreDemo.Models;
+using PetStoreDemo.Util;
 
 namespace PetStoreDemo.Controllers
 {
@@ -17,6 +18,7 @@ namespace PetStoreDemo.Controllers
         private PetStoreDemoContext db = new PetStoreDemoContext();
 
         // GET: api/ApiPets
+        [BasicAuthentication]
         public IQueryable<Pet> GetPets()
         {
             return db.Pets;

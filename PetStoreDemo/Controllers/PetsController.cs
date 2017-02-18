@@ -41,10 +41,11 @@ namespace PetStoreDemo.Controllers
             try
             {
                 // TODO: Add insert logic here
-                var pets = new ApiPetsController().GetPets();
-                int maxid = pets.Max(p => p.Id);
-                
-                var pet = new ApiPetsController().PutPet(new_pet.Id, new_pet); 
+                //var pets = new ApiPetsController().GetPets();
+                //int maxid = pets.Max(p => p.Id);
+                new_pet.statusId = 1;
+                new_pet.status = db.Status.Where(s => s.Id == new_pet.statusId).FirstOrDefault(); 
+                var pet = new ApiPetsController().PostPet(new_pet); 
                 return RedirectToAction("Index"); 
             }
             catch
