@@ -77,3 +77,4 @@ C:\Users\dhaval\Documents\Visual Studio 2015\Projects\Api\New folder\PetStoreDem
 C:\Users\dhaval\Documents\Visual Studio 2015\Projects\Api\New folder\PetStoreDemo\PetStoreDemo\obj\Debug\PetStoreDemo.Migrations.InitialMigration.resources
 C:\Users\dhaval\Documents\Visual Studio 2015\Projects\Api\New folder\PetStoreDemo\PetStoreDemo\obj\Debug\PetStoreDemo.csproj.GenerateResource.Cache
 C:\Users\dhaval\Documents\Visual Studio 2015\Projects\Api\New folder\PetStoreDemo\PetStoreDemo\obj\Debug\PetStoreDemo.csprojResolveAssemblyReference.cache
+C:\Users\dhaval\Documents\Visual Studio 2015\Projects\Api\New folder\PetStoreDemo\PetStoreDemo\obj\Debug\PetStoreDemo.Migrations.add_isadmin_col.resources

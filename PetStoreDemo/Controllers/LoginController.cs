@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using PetStoreDemo.Util; 
+using PetStoreDemo.Util;
+using PetStoreDemo.Models;  
 
 namespace PetStoreDemo.Controllers
 {
     public class LoginController : Controller
     {
         // GET: Login
+        PetStoreDemoContext db = new PetStoreDemoContext(); 
         public ActionResult Index()
         {
             if (System.Web.HttpContext.Current.Session["user"] != null)
@@ -20,14 +22,19 @@ namespace PetStoreDemo.Controllers
         }
 
         [HttpPost]
+        [BasicAuthentication]
         public ActionResult Index(FormCollection collection)
         {
             string username = Request.Form["username"]; 
             string password = Request.Form["password"];
             string errmsg = null; 
+
             if(EmployeeSecurity.login(username, password))
             {
-                System.Web.HttpContext.Current.Session.Add("user", username); 
+                User usr = db.Users.Where(u => u.UserName == username).FirstOrDefault();
+                
+                System.Web.HttpContext.Current.Session.Add("user", username);
+                System.Web.HttpContext.Current.Session.Add("fullname", usr.FullName);
                 ViewBag.errmsg = errmsg;
                 return RedirectToAction("Index", "Home"); 
             }
