@@ -40,9 +40,6 @@ namespace PetStoreDemo.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-                //var pets = new ApiPetsController().GetPets();
-                //int maxid = pets.Max(p => p.Id);
                 new_pet.statusId = 1;
                 new_pet.status = db.Status.Where(s => s.Id == new_pet.statusId).FirstOrDefault(); 
                 var pet = new ApiPetsController().PostPet(new_pet); 
@@ -57,7 +54,16 @@ namespace PetStoreDemo.Controllers
         // GET: Pets/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Pet pet = db.Pets.Find(id);
+            if (pet == null)
+            {
+                return HttpNotFound();
+            }
+            return View(pet);
         }
 
         // POST: Pets/Edit/5

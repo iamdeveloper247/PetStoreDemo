@@ -300,6 +300,7 @@
     <Content Include="Views\Pets\Delete.cshtml" />
     <Content Include="Views\Pets\Create.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Pets\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

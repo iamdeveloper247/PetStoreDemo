@@ -21,8 +21,8 @@
         <th>
             Status
         </th>
-        <th> Delete </th>
-        <th> Details </th>
+        <th>Edit </th>
+        <th>Delete </th>
         <th> id </th>
     </tr>
 
@@ -46,15 +46,16 @@
                 }
             </td>
             <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
+                
+                @Html.ActionLink("Edit","Edit", new { id = @pet.Id } )
                 @*@Html.ActionLink("Details", "Details", new { id=item.Id })*@
-                @Html.ActionLink("Delete", "Delete", new { id= @pet.Id })
+               
             </td> 
             <td>
                 @*<button type="button" class="btn btn-success" data-toggle="modal" data-target="#detailmodal" >
                    View Image
                 </button>*@
-
+                @Html.ActionLink("Delete", "Delete", new { id = @pet.Id })
             </td>
             <td>
                  
