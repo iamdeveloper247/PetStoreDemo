@@ -41,7 +41,6 @@ namespace PetStoreDemo.Controllers
             try
             {
                 new_pet.statusId = 1;
-                new_pet.status = db.Status.Where(s => s.Id == new_pet.statusId).FirstOrDefault(); 
                 var pet = new ApiPetsController().PostPet(new_pet); 
                 return RedirectToAction("Index"); 
             }
