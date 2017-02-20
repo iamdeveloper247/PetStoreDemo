@@ -50,8 +50,10 @@ namespace PetStoreDemo.Controllers
             {
                 return BadRequest();
             }
-
-            db.Entry(pet).State = EntityState.Modified;
+            db.Entry(pet).State = EntityState.Modified; 
+            
+            // other changed properties
+           // db.SaveChanges();
 
             try
             {

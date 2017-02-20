@@ -63,22 +63,33 @@ namespace PetStoreDemo.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.status = db.Status.ToList(); 
+            
             return View(pet);
         }
 
-        // POST: Pets/Edit/5
+        // POST: Pets/Edit/5 [Bind(Include = "Id,Name,Category,statusId,status")] Pet edit_pet
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
+                Pet edit_pet = new Pet();
+                edit_pet.Id = int.Parse(collection["Id"]); 
+                edit_pet.Name = (collection["Name"]);
+                edit_pet.Category = (collection["Category"]);
+                edit_pet.statusId = int.Parse(collection["statusId"]);
                 // TODO: Add update logic here
-
+                var edited_pet = new ApiPetsController().PutPet(id, edit_pet);
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception e)
             {
-                return View();
+                string stack = e.StackTrace;
+                string src = e.Source;
+                string msg = e.Message;
+                string s = e.InnerException.ToString();
+                return RedirectToAction("Index");
             }
         }
 
@@ -93,7 +104,7 @@ namespace PetStoreDemo.Controllers
             if (pet == null)
             {
                 return HttpNotFound();
-            }
+            } 
             return View(pet);
         }
 
@@ -103,7 +114,6 @@ namespace PetStoreDemo.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
                 var pet = new ApiPetsController().DeletePet(id);
 
                 return RedirectToAction("Index");
@@ -112,6 +122,6 @@ namespace PetStoreDemo.Controllers
             {
                 return View();
             }
-        }
+        } 
     }
 }
