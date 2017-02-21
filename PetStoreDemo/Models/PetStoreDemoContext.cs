@@ -19,9 +19,10 @@ namespace PetStoreDemo.Models
         {
         }
 
-        public System.Data.Entity.DbSet<PetStoreDemo.Models.Pet> Pets { get; set; }
-        public System.Data.Entity.DbSet<PetStoreDemo.Models.Status> Status { get; set; }
-        public System.Data.Entity.DbSet<PetStoreDemo.Models.User> Users { get; set; }
+        public DbSet<PetStoreDemo.Models.Pet> Pets { get; set; }
+        public DbSet<PetStoreDemo.Models.Status> Status { get; set; }
+        public DbSet<PetStoreDemo.Models.User> Users { get; set; }
+        public DbSet<FilePath> FilePaths { get; set; }
 
     }
 }

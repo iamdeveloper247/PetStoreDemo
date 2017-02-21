@@ -211,8 +211,6 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PetsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Controllers\ValueTestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -228,9 +226,15 @@
     <Compile Include="Migrations\201702201904192_-Nameimage_.Designer.cs">
       <DependentUpon>201702201904192_-Nameimage_.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702210309507_filepath.cs" />
+    <Compile Include="Migrations\201702210309507_filepath.Designer.cs">
+      <DependentUpon>201702210309507_filepath.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Filepath.cs" />
+    <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Pet.cs" />
     <Compile Include="Models\PetStoreDemoContext.cs" />
@@ -326,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702201904192_-Nameimage_.resx">
       <DependentUpon>201702201904192_-Nameimage_.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702210309507_filepath.resx">
+      <DependentUpon>201702210309507_filepath.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

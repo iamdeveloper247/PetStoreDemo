@@ -1,4 +1,7 @@
-﻿@model PetStoreDemo.Models.Pet  
+﻿@using PetStoreDemo.Models
+
+@model PetStoreDemo.Models.Pet  
+
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -64,7 +67,17 @@
         </div>
 </div>
 }
-
+ 
+    @*@if (Model.FilePaths.Any(f => f.FileType == FileType.Photo))
+    {
+        <dt>
+            Photo
+        </dt>
+        <dd>
+            <img src="~/images/@Model.FilePaths.First(f => f.FileType == FileType.Photo)).FileName" alt="" />
+        </dd>
+    }*@
+ 
 
 <div>
     @Html.ActionLink("Back to List", "Index")

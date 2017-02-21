@@ -82,7 +82,7 @@ namespace PetStoreDemo.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            //var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/UploadedFiles"), httpPostedFile.FileName);
             db.Pets.Add(pet);
             db.SaveChanges();
 

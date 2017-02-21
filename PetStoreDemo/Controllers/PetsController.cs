@@ -38,10 +38,22 @@ namespace PetStoreDemo.Controllers
 
         // POST: Pets/Create
         [HttpPost]
-        public ActionResult Create([Bind(Include = "Id,Name,Category")] Pet new_pet)
+        public ActionResult Create([Bind(Include = "Id,Name,Category")] Pet new_pet, HttpPostedFileBase upload)
         {
             try
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    var photo = new FilePath
+                    {
+                        //FileName = System.IO.Path.GetFileName(upload.FileName),
+                        FileName =  Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName),
+                        FileType = FileType.Photo
+                    };
+                    new_pet.FilePaths = new List<FilePath>();
+                    new_pet.FilePaths.Add(photo);
+                }
+                
                 new_pet.statusId = 1;
                 var pet = new ApiPetsController().PostPet(new_pet);
 
@@ -65,12 +77,13 @@ namespace PetStoreDemo.Controllers
             {
                 return HttpNotFound();
             }
+            
             ViewBag.status = db.Status.ToList(); 
             
             return View(pet);
         }
 
-        // POST: Pets/Edit/5 [Bind(Include = "Id,Name,Category,statusId,status")] Pet edit_pet
+        // POST: Pets/Edit/5 [Bind(Include = "Id,Name,Category,statusId,status")] Pet edit_pet  
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {

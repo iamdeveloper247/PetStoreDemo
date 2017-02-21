@@ -19,7 +19,7 @@ namespace PetStoreDemo.Models
         public int statusId { get; set; }
         [ForeignKey("statusId")]
         public Status status { get; set; }
-    
 
+        public virtual ICollection<FilePath> FilePaths { get; set; }
     }
 }
