@@ -23,7 +23,7 @@
         </th>
         <th>Edit </th>
         <th>Delete </th>
-        <th> id </th>
+ 
     </tr>
 
     @foreach (PetStoreDemo.Models.Pet pet in ViewBag.pets)
@@ -57,9 +57,7 @@
                 </button>*@
                 @Html.ActionLink("Delete", "Delete", new { id = @pet.Id })
             </td>
-            <td>
-                 
-            </td>
+ 
         </tr>
     }
 
