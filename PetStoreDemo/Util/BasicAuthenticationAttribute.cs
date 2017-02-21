@@ -26,7 +26,7 @@ namespace PetStoreDemo.Util
                 string username = userarray[0];
                 string password = userarray[1];
 
-                if (EmployeeSecurity.login(username, password))
+                if (Security.login(username, password))
                 {
                     Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(username), null);
                 }

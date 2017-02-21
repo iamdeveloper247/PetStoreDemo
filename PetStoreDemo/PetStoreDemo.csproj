@@ -245,7 +245,7 @@
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Util\BasicAuthenticationAttribute.cs" />
-    <Compile Include="Util\EmployeeSecurity.cs" />
+    <Compile Include="Util\Security.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

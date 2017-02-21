@@ -29,7 +29,7 @@ namespace PetStoreDemo.Controllers
             string password = Request.Form["password"];
             string errmsg = null; 
 
-            if(EmployeeSecurity.login(username, password))
+            if(Security.login(username, password))
             {
                 User usr = db.Users.Where(u => u.UserName == username).FirstOrDefault();
                 

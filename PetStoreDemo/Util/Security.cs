@@ -6,7 +6,7 @@ using PetStoreDemo.Models;
 
 namespace PetStoreDemo.Util
 {
-    public class EmployeeSecurity
+    public class Security
     {
         public static bool login(string username, string password)
         {
