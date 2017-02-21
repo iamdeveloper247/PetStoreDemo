@@ -18,7 +18,6 @@ namespace PetStoreDemo.Controllers
         private PetStoreDemoContext db = new PetStoreDemoContext();
 
         // GET: api/ApiPets
-        [BasicAuthentication]
         public IQueryable<Pet> GetPets()
         {
             return db.Pets;
