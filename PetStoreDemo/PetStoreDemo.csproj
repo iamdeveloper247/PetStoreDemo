@@ -224,6 +224,10 @@
     <Compile Include="Migrations\201702180256432_add_isadmin_col.Designer.cs">
       <DependentUpon>201702180256432_add_isadmin_col.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702201904192_-Nameimage_.cs" />
+    <Compile Include="Migrations\201702201904192_-Nameimage_.Designer.cs">
+      <DependentUpon>201702201904192_-Nameimage_.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -319,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702180256432_add_isadmin_col.resx">
       <DependentUpon>201702180256432_add_isadmin_col.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702201904192_-Nameimage_.resx">
+      <DependentUpon>201702201904192_-Nameimage_.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

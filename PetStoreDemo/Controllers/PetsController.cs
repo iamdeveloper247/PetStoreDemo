@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using PetStoreDemo.Models;
 using System.Net;
+using System.Web.UI.WebControls;
+using System.IO;
 
 namespace PetStoreDemo.Controllers
 {
@@ -41,12 +43,13 @@ namespace PetStoreDemo.Controllers
             try
             {
                 new_pet.statusId = 1;
-                var pet = new ApiPetsController().PostPet(new_pet); 
+                var pet = new ApiPetsController().PostPet(new_pet);
+
                 return RedirectToAction("Index"); 
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
 

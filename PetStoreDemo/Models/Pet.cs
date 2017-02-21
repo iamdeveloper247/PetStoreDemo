@@ -13,6 +13,9 @@ namespace PetStoreDemo.Models
         public string Name { get; set; }
         public string Category { get; set; }
 
+        public string imgname { get; set; }
+        public byte[] img { get; set; }
+
         public int statusId { get; set; }
         [ForeignKey("statusId")]
         public Status status { get; set; }
